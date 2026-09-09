@@ -1,14 +1,14 @@
 public class Preguntas {
-    private int numpregunta;
-    private String imagenrut;
-    private boolean respuestacorr;
+    private int numero;
+    private String rutaImagen;
+    private boolean esIA; // Un true significa que si es ia, y el false es humano
     private String retroalimentacion;
 
-    public Preguntas() {
-        numpregunta = 0;
-        imagenrut = "";
-        respuestacorr = false;
-        retroalimentacion = "";
+    public Preguntas(int numero, String rutaImagen, boolean esIA, String retroalimentacion) {
+        this.numero = numero;
+        this.rutaImagen = rutaImagen;
+        this.esIA = esIA;
+        this.retroalimentacion = retroalimentacion;
     }
 
     public boolean verRespuesta(boolean respuesta) {
