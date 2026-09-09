@@ -6,12 +6,12 @@ public class InfoJuego {
     public InfoJuego() {
         this.acercaDelProyecto = 
             "===================================================\n" +
-            "                ¿CÓMO INICIAR A JUGAR?                 \n" +
+            "                ¿CÓMO INICIAR A JUGAR?    \n" +
             "===================================================\n" +
             "¡Bienvenido a IAdetector!\n\n" +
-            "El objetivo principal de este proyecto es poner a prueba el criterio del usuario\n" +
+            "Este proyecto pone a prueba el criterio del usuario" +
             "al identificar recursos e imágenes visuales creadas mediante IA\n" +
-            "generativa compararadas con fotografías e ilustraciones reales de origen humano.\n\n" +
+            "comparadas con fotografías e ilustraciones reales de origen humano\n\n" +
             "¿Cómo funciona la evaluación?\n" +
             "1. Observa el recurso o imagen asignada en cada pregunta.\n" +
             "2. Analiza patrones como sombras, texturas, simetría en rostros o bordes.\n" +
