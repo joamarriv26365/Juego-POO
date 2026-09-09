@@ -68,13 +68,13 @@
                     if (esCorrecta) {
                         System.out.println("\n[RESULTADO]: ¡CORRECTO! Has ganado 10 puntos.");
                     } else {
-                        System.out.println("\n[RESULTADO]: INCORRECTO. No has sumado puntos.");
+                        System.out.println("\n[RESULTADO]: INCORRECTO. No hay puntos para tí.");
                     }
 
                     System.out.println("Puntaje acumulado de " + partida.getNombreJugador() + ": " + partida.getPuntaje() + " pts");
 
                     
-                    System.out.println("\n¿Deseas ver la retroalimentación e indicios de esta imagen?");
+                    System.out.println("\n¿Deseas ver la retroalimentación de esta imagen?");
                     System.out.println("1. Sí");
                     System.out.println("2. No");
 
