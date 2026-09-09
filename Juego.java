@@ -19,7 +19,7 @@ public class Juego {
         preguntas[5] = new Pregunta(6, "imagenes6.jpg",true,"Retroalimentación 6");
         preguntas[6] = new Pregunta(7, "imagenes7.jpg",true,"Retroalimentación 7");
         preguntas[7] = new Pregunta(8, "imagenes8.jpg",true,"Retroalimentación 8");
-        preguntas[8] = new Pregunta(9, "imagenes9.jpg",true,"Retroalimentación 9");
+        preguntas[8] = new Pregunta(9, "imagenes9.jpg",true,"Retroalimentación9");
         preguntas[9] = new Pregunta(10, "imagenes10.jpg",true,"RetroalimentacióN 10");
     }
 
