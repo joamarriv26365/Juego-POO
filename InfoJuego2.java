@@ -6,7 +6,7 @@ public class InfoJuego {
     public InfoJuego() {
         this.acercaDelProyecto = 
             "=========================================================================\n" +
-            "                    ACERCA DEL PROYECTO Y SU PROPÓSITO                    \n" +
+            "                ¿CÓMO INICIAR A JUGAR?                 \n" +
             "=========================================================================\n" +
             "¡Bienvenido a IAdetector!\n\n" +
             "El objetivo principal de este proyecto es poner a prueba el criterio del usuario\n" +
