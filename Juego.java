@@ -11,7 +11,7 @@ public class Juego {
         this.numpregunta = 0;
         this.puntaje = 0;
         preguntas = new Pregunta[10];
-        preguntas[0] = new Pregunta(1, "imagenes1.jpg", true, "Retroalimentación 1");
+        preguntas[0] = new Pregunta(1, "imagenes1.jpg", true, "Retroalimentación1");
         preguntas[1] = new Pregunta(2, "imagenes2.jpg",false, "Retroalimentación 2");
         preguntas[2] = new Pregunta(3, "imagenes3.jpg",true,"Retroalimentación 3");
         preguntas[3] = new Pregunta(4, "imagenes4.jpg",true,"Retroalimentación 4");
