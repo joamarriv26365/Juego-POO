@@ -10,13 +10,13 @@
             System.out.println("1. Iniciar Juego");
             System.out.println("2. Acerca del Proyecto");
             System.out.println("3. Salir");
-            System.out.print("Elige una opción: ");
+            System.out.print("Elige una opción: (Debe ser un número de 1 a 3) ");
 
             int opcionMenu = 0;
             try {
                 opcionMenu = scanner.nextInt();
                 if (opcionMenu < 1 || opcionMenu > 3) {
-                    System.out.println(" Esa no es una opción válida. elige un numero del 1 al 3");
+                    System.out.println(" Esa no es una opción válida. (Debe ser un número de 1 a 3)");
                     continue;
                 }
             } catch (InputMismatchException e) {
