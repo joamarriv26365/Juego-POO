@@ -19,7 +19,7 @@ public class InfoJuego {
             "4. En caso de ingresar una opción distinta o un caracter no permitido, el programa\n" +
             "   te indicará que la opción no es válida y te permitirá responder de nuevo\n" +
             "   SIN afectarte la puntuación ni marcar la pregunta como incorrecta.\n\n" +
-            "¡Aprende a identificar indicios visuales y mejora tus habilidades de análisis!\n" ;
+            "¡MUCHA SUERTE EN TU PARTIDA!\n" ;
 
         this.instruccionesPregunta = 
             "¿Este contenido fue creado por Inteligencia Artificial?\n" +
