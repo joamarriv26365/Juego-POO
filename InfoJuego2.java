@@ -7,7 +7,7 @@ public class InfoJuego {
         this.acercaDelProyecto = 
             "===================================================\n" +
             "                ¿CÓMO INICIAR A JUGAR?                 \n" +
-            "=========================================================================\n" +
+            "===================================================\n" +
             "¡Bienvenido a IAdetector!\n\n" +
             "El objetivo principal de este proyecto es poner a prueba el criterio del usuario\n" +
             "al identificar recursos e imágenes visuales creadas mediante IA\n" +
