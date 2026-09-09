@@ -44,7 +44,7 @@ public static void main(String[] args) {
                     Pregunta pregunta = partida.obtenerPreguntaActual();
 
                     System.out.println("\n--------------------------------------------------");
-                    System.out.println("Pregunta " + (partida.getNumPregunta() + 1) + " de " + partida.getTotalPreguntas());
+                    System.out.println("Pregunta " + (partida.getNumpregunta() + 1) + " de " + partida.getTotalPreguntas());
                     System.out.println("Recurso visual a evaluar: " + pregunta.getRutaImagen());
                     System.out.println(info.getInstruccionesPregunta());
 
