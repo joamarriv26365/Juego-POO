@@ -48,7 +48,7 @@
                     boolean respuestaValida = false;
 
                     while (!respuestaValida) {
-                        System.out.print("Elige una opción (1 o 2): ");
+                        System.out.print("Elige una opción, debe ser un número entero (1 o 2): ");
                         try {
                             opcionRespuesta = scanner.nextInt();
                             if (opcionRespuesta == 1 || opcionRespuesta == 2) {
