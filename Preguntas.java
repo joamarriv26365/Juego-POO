@@ -11,42 +11,20 @@ public class Preguntas {
         this.retroalimentacion = retroalimentacion;
     }
 
-    public boolean verRespuesta(boolean respuesta) {
-        return respuesta == respuestacorr;
+   public boolean esRespuestaCorrecta(boolean respuestaUsuario) {
+        return this.esIA == respuestaUsuario;
     }
 
-    public void Operation10() {
+    public int getNumero() {
+        return numero;
     }
 
-    public void setNumPregunta(int newnumpregunta) {
-        numpregunta = newnumpregunta;
-    }
-
-    public int getNumPregunta() {
-        return numpregunta;
-    }
-
-    public void setImagenRut(String newimagenrut) {
-        imagenrut = newimagenrut;
-    }
-
-    public String getImagenRut() {
-        return imagenrut;
-    }
-
-    public void setRespuestaCorr(boolean newrespuestacorr) {
-        respuestacorr = newrespuestacorr;
-    }
-
-    public boolean getRespuestaCorr() {
-        return respuestacorr;
-    }
-
-    public void setRetroalimentacion(String newretroalimentacion) {
-        retroalimentacion = newretroalimentacion;
+    public String getRutaImagen() {
+        return rutaImagen;
     }
 
     public String getRetroalimentacion() {
         return retroalimentacion;
     }
+
 }
