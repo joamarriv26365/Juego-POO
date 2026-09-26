@@ -30,6 +30,16 @@ public class VentanaPregunta extends JFrame {
         JLabel lblImg = new JLabel(new ImageIcon(imgEscalada));
         lblImg.setBounds(150, 45, 400, 300);
         add(lblImg);
+
+        JLabel lblRecurso = new JLabel("Recurso a evaluar: " + p.getRutaImagen());
+        lblRecurso.setBounds(50, 355, 400, 25);
+        add(lblRecurso);
+
+       
+        JTextArea txtInstr = new JTextArea(info.getInstruccionesPregunta());
+        txtInstr.setEditable(false);
+        txtInstr.setBounds(50, 385, 580, 50);
+        add(txtInstr);
     }
 
 }
