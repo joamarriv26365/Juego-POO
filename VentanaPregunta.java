@@ -40,6 +40,11 @@ public class VentanaPregunta extends JFrame {
         txtInstr.setEditable(false);
         txtInstr.setBounds(50, 385, 580, 50);
         add(txtInstr);
+
+        JButton btnIA = new JButton ("Si (la imagén esta generada con inteligencia artificial)");
+        btnIA.setBounds (120, 455, 180, 40);
+        btnIA.addActionListener (e -> responder(true));
+        ass(btnIA);
     }
 
 }
