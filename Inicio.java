@@ -9,5 +9,9 @@ public class Inicio extends JFrame{
     setDefaultCloseOperation(EXIT_ON_CLOSE);
     setLayout(null);
     setLocationRelativeTo(null);
+
+    JLabel titulo = new JLabel(" IA Detector ", SwingConstants.CENTER);
+    titulo.setBounds(150, 20, 300, 30);
+    add(titulo);
   }
 }
