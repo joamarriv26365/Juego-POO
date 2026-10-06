@@ -13,5 +13,9 @@ public class Inicio extends JFrame{
     JLabel titulo = new JLabel(" IA Detector ", SwingConstants.CENTER);
     titulo.setBounds(150, 20, 300, 30);
     add(titulo);
+
+    JTextArea areaInfo = new JTextArea(info.getAcercaDelProyecto());
+    areaInfo.setLineWrap(true);
+    
   }
 }
