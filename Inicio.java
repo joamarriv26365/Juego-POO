@@ -21,5 +21,13 @@ public class Inicio extends JFrame{
     JScrollPane scroll = new JScrollPane(areaInfo);
     scroll.setBound(50, 60, 500, 240);
     add(scroll);
+
+    JLabel lblNombre = new JLabel("Ingresa tu usuario: ");
+    lblNombre.setBound(50, 320, 150, 30);
+    add(lblNombre);
+
+    txtNombre = new JTextField();
+    txtNombre.setBounds(180, 320, 220, 30);
+    add(txtNombre);
   }
 }
