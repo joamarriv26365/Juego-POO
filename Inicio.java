@@ -16,6 +16,7 @@ public class Inicio extends JFrame{
 
     JTextArea areaInfo = new JTextArea(info.getAcercaDelProyecto());
     areaInfo.setLineWrap(true);
-    
+    areaInfo.setWrapStyleWord(true);
+    areInfo.setEditable(False);
   }
 }
