@@ -6,5 +6,6 @@ public class Inicio extends JFrame{
   public Inicio(){
     setTitle("IA detector - Inicio");
     setSize(600,500);
+    setDefaultCloseOperation(EXIT_ON_CLOSE);
   }
 }
