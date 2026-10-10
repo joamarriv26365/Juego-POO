@@ -34,10 +34,28 @@ public class Quiz implements ActionListener {
 
     };
 
-    String answers = {
+    char [] answers = {
 
+            'A',
+            'B'
 
     };
+
+    char guess;
+    char answer;
+    int index;
+    int correct_guesses = 0;
+    int total_questions = questions.length;// se adapta a la longitud del array
+    int result;
+    int seconds = 30;//timer
+
+    JFrame frame = new JFrame();
+    JTextField textfield = new JTextField();
+    JTextArea textarea = new JTextArea();
+    JButton buttonA = new JButton();
+    JButton buttonB = new JButton();
+    JButton buttonC = new JButton();
+    JButton buttonD = new JButton();
     //constructor
     public Quiz(){
     }
