@@ -105,8 +105,64 @@ import javax.swing.*;
             textarea.setFont(new Font("Serif", Font.PLAIN, 30));
             textarea.setBorder(BorderFactory.createBevelBorder(1));
             textarea.setEditable(false);
-            textarea.setText("SAMPLE TEXT");
 
+            buttonA.setBounds (0, 100, 100, 100);
+            buttonA.setFont(new Font ("Papyrus", Font.PLAIN, 35));
+            buttonA.setFocusable(false);
+            buttonA.addActionListener(this);
+            buttonA.setText("Pene");
+
+            buttonB.setBounds (0, 200, 100, 100);
+            buttonB.setFont(new Font ("Papyrus", Font.PLAIN, 35));
+            buttonB.setFocusable(false);
+            buttonB.addActionListener(this);
+            buttonB.setText("Anos");
+
+            buttonC.setBounds (0, 300, 100, 100);
+            buttonC.setFont(new Font ("Papyrus", Font.PLAIN, 35));
+            buttonC.setFocusable(false);
+            buttonC.addActionListener(this);
+            buttonC.setText("Bolas");
+
+            buttonD.setBounds (0, 400, 100, 100);
+            buttonD.setFont(new Font ("Papyrus", Font.PLAIN, 35));
+            buttonD.setFocusable(false);
+            buttonD.addActionListener(this);
+            buttonD.setText("Más Anos");
+
+            answer_labelA.setBounds(125,100,500,100);
+            answer_labelA.setBackground(new Color (50,50,50));
+            answer_labelA.setForeground(new Color (255, 255, 255));
+            answer_labelA.setFont(new Font("Papyrus", Font.PLAIN, 35));
+            answer_labelA.setText("ano");
+
+            answer_labelB.setBounds(125,200,500,100);
+            answer_labelB.setBackground(new Color (50,50,50));
+            answer_labelB.setForeground(new Color (255, 255, 255));
+            answer_labelB.setFont(new Font("Papyrus", Font.PLAIN, 35));
+            answer_labelB.setText("ano");
+
+
+            answer_labelC.setBounds(125,300,500,100);
+            answer_labelC.setBackground(new Color (50,50,50));
+            answer_labelC.setForeground(new Color (255, 255, 255));
+            answer_labelC.setFont(new Font("Papyrus", Font.PLAIN, 35));
+            answer_labelC.setText("ano");
+
+            answer_labelD.setBounds(125,400,500,100);
+            answer_labelD.setBackground(new Color (50,50,50));
+            answer_labelD.setForeground(new Color (255, 255, 255));
+            answer_labelD.setFont(new Font("Papyrus", Font.PLAIN, 35));
+            answer_labelD.setText("ano");
+
+            frame.add(answer_labelA);
+            frame.add(answer_labelB);
+            frame.add(answer_labelC);
+            frame.add(answer_labelD);
+            frame.add(buttonA);
+            frame.add(buttonB);
+            frame.add(buttonC);
+            frame.add(buttonD);
             frame.add(textarea);
             frame.add(textfield);
             frame.setVisible(true);
@@ -131,3 +187,5 @@ import javax.swing.*;
 
         }
     }
+
+
