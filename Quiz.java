@@ -1,3 +1,7 @@
+
+// Este programa es dinámico, se le pueden agregar
+// preguntas sin problemas y va a correr igual
+
 import java.awt.event.*;
 import java.awt.*;
 import javax.swing.*;
@@ -52,7 +56,7 @@ import javax.swing.*;
         int correct_guesses = 0;
         int total_questions = questions.length;// se adapta a la longitud del array
         int result;
-        int seconds = 30;//timer
+        int seconds = 10;//timer
 
         JFrame frame = new JFrame();
         JTextField textfield = new JTextField();
@@ -218,12 +222,77 @@ import javax.swing.*;
         }
         //Todo lo relacionado con los clicks del ususario va a ir aqui.
         public void actionPerformed(ActionEvent e){
+            buttonA.setEnabled(false);
+            buttonB.setEnabled(false);
+            buttonC.setEnabled(false);
+            buttonD.setEnabled(false);
 
+            if (e.getSource()==buttonA){
+                answer = 'A';
+                if (answer == answers[index]) {
+                    correct_guesses++;
+                }
+            }
+
+            if (e.getSource()==buttonB){
+                answer = 'B';
+                if (answer == answers[index]) {
+                    correct_guesses++;
+                }
+            }
+
+            if (e.getSource()==buttonC){
+                answer = 'C';
+                if (answer == answers[index]) {
+                    correct_guesses++;
+                }
+            }
+
+            if (e.getSource()==buttonD){
+                answer = 'D';
+                if (answer == answers[index]) {
+                    correct_guesses++;
+                }
+            }
 
         }
 
         //Método que nos enseña la respuesta correcta
         public void displayAnswer() {
+
+            buttonA.setEnabled(false);
+            buttonB.setEnabled(false);
+            buttonC.setEnabled(false);
+            buttonD.setEnabled(false);
+
+            if(answers[index]!= 'A')
+                answer_labelA.setForeground(new Color (100, 0 ,0 ));
+            if(answers[index]!= 'B')
+                answer_labelB.setForeground(new Color (100, 0 ,0 ));
+            if(answers[index]!= 'C')
+                answer_labelC.setForeground(new Color (100, 0 ,0 ));
+            if(answers[index]!= 'D')
+                answer_labelD.setForeground(new Color (100, 0 ,0 ));
+
+            Timer pause = new Timer(2000, new ActionListener(){
+
+                @Override
+                public void actionPerformed(ActionEvent e){
+                    answer_labelA.setForeground(new Color(96, 6, 6));
+                    answer_labelB.setForeground(new Color(96, 6, 6));
+                    answer_labelC.setForeground(new Color(96, 6, 6));
+                    answer_labelD.setForeground(new Color(96, 6, 6));
+
+                    answer = ' ';
+                    seconds = 10;
+                    seconds_left.setText(String.valueOf(seconds));
+                    buttonA.setEnabled(true);
+                    buttonA.setEnabled(true);
+                    buttonA.setEnabled(true);
+                    buttonA.setEnabled(true);
+                }
+
+            });
 
         }
 
@@ -232,5 +301,4 @@ import javax.swing.*;
 
         }
     }
-
 
