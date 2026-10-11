@@ -4,7 +4,7 @@ import javax.swing.*;
 
 public class Quiz implements ActionListener {
 
-    // 10 preguntas sobre el tema con la estructura del video
+    // 10 preguntas sobre el tema
     String[] questions = {
             "1. ¿Esta pintura fue realizada por un artista o por Midjourney?",
             "2. ¿Este retrato fotorrealista fue generado por una IA?",
@@ -32,18 +32,23 @@ public class Quiz implements ActionListener {
             {"Creada por una IA", "Óleo renacentista"}
     };
 
-    // Respuestas correctas para las 10 preguntas[cite: 1]
+    // Explicaciones detalladas para cada una de las 10 preguntas
+    String[] explicaciones = {
+            "Explicación 1: Fue hecha por un artista humano utilizando trazos tradicionales de óleo.",
+            "Explicación 2: El nivel de simetría perfecta y la textura digital delatan el uso de una red neuronal.",
+            "Explicación 3: Se aprecian decisiones estéticas y fallos humanos típicos del diseño conceptual manual.",
+            "Explicación 4: Los patrones fractales complejos son generados típicamente por un generador de IA.",
+            "Explicación 5: Contiene imperfecciones ópticas y ruido de sensor característico de cámaras fotográficas reales.",
+            "Explicación 6: Los modelos poligonales y texturas procedurales fueron optimizados por software de IA.",
+            "Explicación 7: El trazo de lápiz muestra la presión y naturalidad de un boceto hecho a mano.",
+            "Explicación 8: Presenta la firma digital y los artefactos de composición visual de DALL-E.",
+            "Explicación 9: La retícula de diseño y el concepto tipográfico provienen de un creativo gráfico.",
+            "Explicación 10: Combina elementos del renacimiento con la iluminación hiperrealista típica de la IA generativa."
+    };
+
+    // Respuestas correctas[cite: 1]
     char[] answers = {
-            'A',
-            'B',
-            'A',
-            'A',
-            'A',
-            'A',
-            'A',
-            'A',
-            'A',
-            'A'
+            'A', 'B', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A'
     };
 
     char guess;
@@ -52,7 +57,7 @@ public class Quiz implements ActionListener {
     int correct_guesses = 0;
     int total_questions = questions.length;
     int result;
-    int seconds = 10; // Temporizador de 10 segundos por pregunta[cite: 1]
+    int seconds = 10;
 
     JFrame frame = new JFrame();
     JTextField textfield = new JTextField();
@@ -66,7 +71,7 @@ public class Quiz implements ActionListener {
     JTextField number_right = new JTextField();
     JTextField percentage = new JTextField();
 
-    // Configuración del Timer idéntica a la del tutorial[cite: 1]
+    // Configuración del Timer[cite: 1]
     Timer timer = new Timer(1000, new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -81,14 +86,14 @@ public class Quiz implements ActionListener {
     public Quiz() {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(650, 650);
-        frame.getContentPane().setBackground(new Color(50, 50, 50)); // Fondo gris oscuro temático[cite: 1]
+        frame.getContentPane().setBackground(new Color(50, 50, 50));
         frame.setLayout(null);
         frame.setResizable(false);
 
         // Barra superior de la pregunta[cite: 1]
         textfield.setBounds(0, 0, 650, 50);
         textfield.setBackground(new Color(25, 25, 25));
-        textfield.setForeground(new Color(25, 255, 0)); // Verde neón[cite: 1]
+        textfield.setForeground(new Color(25, 255, 0));
         textfield.setFont(new Font("Century Gothic", Font.PLAIN, 25));
         textfield.setBorder(BorderFactory.createBevelBorder(1));
         textfield.setHorizontalAlignment(JTextField.CENTER);
@@ -176,7 +181,6 @@ public class Quiz implements ActionListener {
         nextQuestion();
     }
 
-    // Método para avanzar entre preguntas de forma dinámica[cite: 1]
     public void nextQuestion() {
         if (index >= total_questions) {
             results();
@@ -189,7 +193,6 @@ public class Quiz implements ActionListener {
         }
     }
 
-    // Manejo de eventos de clic en los botones[cite: 1]
     @Override
     public void actionPerformed(ActionEvent e) {
         buttonA.setEnabled(false);
@@ -210,35 +213,52 @@ public class Quiz implements ActionListener {
         displayAnswer();
     }
 
-    // Método para mostrar respuestas correctas/incorrectas con colores[cite: 1]
+    // Método modificado para ofrecer la opción de ver la explicación o seguir
     public void displayAnswer() {
         timer.stop();
         buttonA.setEnabled(false);
         buttonB.setEnabled(false);
 
+        // Pone en rojo la respuesta incorrecta
         if (answers[index] != 'A') answer_labelA.setForeground(new Color(255, 0, 0));
         if (answers[index] != 'B') answer_labelB.setForeground(new Color(255, 0, 0));
 
-        Timer pause = new Timer(2000, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                answer_labelA.setForeground(new Color(25, 255, 0));
-                answer_labelB.setForeground(new Color(25, 255, 0));
+        // Ventana de diálogo interactiva para decidir ver la explicación o continuar
+        int opcionElegida = JOptionPane.showOptionDialog(
+                frame,
+                "¿Qué deseas hacer ahora?",
+                "Pregunta " + (index + 1) + " evaluada",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                new Object[]{"Ver Explicación", "Siguiente Pregunta"},
+                "Siguiente Pregunta"
+        );
 
-                answer = ' ';
-                seconds = 10;
-                seconds_left.setText(String.valueOf(seconds));
-                buttonA.setEnabled(true);
-                buttonB.setEnabled(true);
-                index++;
-                nextQuestion();
-            }
-        });
-        pause.setRepeats(false);
-        pause.start();
+        if (opcionElegida == JOptionPane.YES_OPTION) {
+            // Muestra la explicación correspondiente a esta pregunta
+            JOptionPane.showMessageDialog(
+                    frame,
+                    explicaciones[index],
+                    "Explicación de la Respuesta",
+                    JOptionPane.INFORMATION_MESSAGE
+            );
+        }
+
+        // Restaura los colores originales de las etiquetas
+        answer_labelA.setForeground(new Color(25, 255, 0));
+        answer_labelB.setForeground(new Color(25, 255, 0));
+
+        // Reinicia valores para la siguiente ronda
+        answer = ' ';
+        seconds = 10;
+        seconds_left.setText(String.valueOf(seconds));
+        buttonA.setEnabled(true);
+        buttonB.setEnabled(true);
+        index++;
+        nextQuestion();
     }
 
-    // Método de resultados finales[cite: 1]
     public void results() {
         buttonA.setEnabled(false);
         buttonB.setEnabled(false);
