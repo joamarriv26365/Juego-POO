@@ -287,9 +287,9 @@ import javax.swing.*;
                     seconds = 10;
                     seconds_left.setText(String.valueOf(seconds));
                     buttonA.setEnabled(true);
-                    buttonA.setEnabled(true);
-                    buttonA.setEnabled(true);
-                    buttonA.setEnabled(true);
+                    buttonB.setEnabled(true);
+                    buttonC.setEnabled(true);
+                    buttonD.setEnabled(true);
                 }
 
             });
