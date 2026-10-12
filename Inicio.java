@@ -29,5 +29,18 @@ public class Inicio extends JFrame{
     txtNombre = new JTextField();
     txtNombre.setBounds(180, 320, 220, 30);
     add(txtNombre);
+
+    JButton btnIniciar = new JButton("1. Iniciar Juego");
+    btnIniciar.setBounds(50, 380, 160, 35);
+    btnIniciar.addActionListener(e -> {
+      String nombre = txtNombre.getText().trim();
+      if(nombre.isEmpty()){
+        JOptionPane.showMessageDiaLOG(this, "Ingrese su usuario para continuar");
+        return;
+      }
+      Juego partida = new Juego(nombre);
+      new VentanaPregunta(partida).setVisible(true);
+      dispose();
+    }
   }
 }
