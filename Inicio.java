@@ -41,6 +41,10 @@ public class Inicio extends JFrame{
       Juego partida = new Juego(nombre);
       new VentanaPregunta(partida).setVisible(true);
       dispose();
-    }
+    });
+    add(btnIniciar);
+    JButton btnSalir = new JButton("3. Salir");
+    btnSalir.setBounds(400, 380, 120, 35);
+    
   }
 }
