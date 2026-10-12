@@ -21,6 +21,16 @@ public class VentanaFinal extends JFrame {
         lblJugador.setBounds(50, 70, 400, 30);
         add(lblJugador);
 
+        int puntajeMaximo = partida.getTotalPreguntas() * 10;
+        JLabel lblPuntos = new JLabel("Puntaje Final: " + partida.getPuntaje() + " / " + puntajeMaximo + " pts");
+        lblPuntos.setBounds(50, 110, 400, 30);
+        add(lblPuntos);
+        
+        String veredicto = partida.getPuntaje() >= 60 ? "¡Aprobado! Eres un buen detector de IA." : "Reprobado. Sigue practicando tu ojo crítico.";
+        JLabel lblVeredicto = new JLabel("Resultado: " + veredicto);
+        lblVeredicto.setBounds(50, 150, 400, 30);
+        add(lblVeredicto);
+
         
     }
 }
