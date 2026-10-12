@@ -48,4 +48,8 @@ public class Inicio extends JFrame{
     btnSalir.addActionListener(e -> System.exit(0));
     add(btnSalir);
   }
+
+  public static void main(String[] args){
+    SwingUtilities.invokeLater(() -> new Inicio89.setVisible(true));
+  }
 }
