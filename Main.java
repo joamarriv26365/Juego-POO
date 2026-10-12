@@ -18,6 +18,8 @@ public class Main { // Clase principal ejecutable del programa. Si se elimina, l
         System.out.println("=========================================");
         System.out.println("   BIENVENIDO AL JUEGO DE ANÁLISIS IA   ");
         System.out.println("=========================================");
+
+         boolean jugando = true;
     
     
     }
