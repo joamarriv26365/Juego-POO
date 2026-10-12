@@ -12,6 +12,15 @@ public class VentanaFinal extends JFrame {
         setLayout(null);
         setLocationRelativeTo(null);
 
+        // 2. Textos de Resultados
+        JLabel lblFin = new JLabel("=== FIN DE LA PARTIDA ===", SwingConstants.CENTER);
+        lblFin.setBounds(100, 20, 300, 30);
+        add(lblFin);
+
+        JLabel lblJugador = new JLabel("Jugador: " + partida.getNombreJugador());
+        lblJugador.setBounds(50, 70, 400, 30);
+        add(lblJugador);
+
         
     }
 }
