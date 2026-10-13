@@ -1,12 +1,12 @@
 import java.util.ArrayList;
 
-public class Juego {
+public class Juego2{
     private String nombreJugador;
     private ArrayList<Pregunta> preguntas;
     private int indiceActual;
     private int puntaje;
 
-    public Juego(String nombreJugador) { 
+    public Juego2(String nombreJugador) { 
         this.nombreJugador = nombreJugador;
         this.indiceActual = 0;
         this.puntaje = 0;
