@@ -38,21 +38,37 @@ public class Juego {
     }
 
     public boolean evaluarRespuesta(boolean respuestaUsuario) {
+        Pregunta actual = obtenerPreguntaActual();
+        if (actual != null) {
+            boolean correcta = actual.esRespuestaCorrecta(respuestaUsuario);
+            if (correcta) {
+                this.puntaje += 10;
+            }
+            return correcta;
+        }
+        return false;,ttjj
     }
 
     public void avanzarSiguientePregunta() {
+        if (indiceActual < preguntas.size() - 1) {
+            indiceActual++;
+        }
     }
 
     public boolean estaFinalizado() {
+        return indiceActual >= preguntas.size() - 1;
     }
 
     public int getPuntaje() {
+        return puntaje;
     }
 
     public int getIndiceActual() {
+        return indiceActual;
     }
 
     public int getTotalPreguntas() {
+        return preguntas.size();
     }
 
     public String getNombreJugador() {
