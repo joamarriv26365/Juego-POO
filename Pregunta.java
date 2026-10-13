@@ -1,7 +1,7 @@
 public class Pregunta {
     private int numero;
     private String rutaImagen;
-    private boolean esIA; // true = Es IA, false = Es Humano
+    private boolean esIA; 
     private String retroalimentacion;
 
     public Pregunta(int numero, String rutaImagen, boolean esIA, String retroalimentacion) {
