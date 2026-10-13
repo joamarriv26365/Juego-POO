@@ -31,6 +31,10 @@ public class Juego {
     }
 
     public Pregunta obtenerPreguntaActual() {
+        if (indiceActual < preguntas.size()) {
+            return preguntas.get(indiceActual);
+        }
+        return null;
     }
 
     public boolean evaluarRespuesta(boolean respuestaUsuario) {
@@ -52,6 +56,7 @@ public class Juego {
     }
 
     public String getNombreJugador() {
+        return nombreJugador;
     }
 
 }
