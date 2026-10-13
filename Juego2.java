@@ -1,21 +1,21 @@
 import java.util.ArrayList;
 
-public class Juego2{
+public class Juego2{  // Datos de la partida, estos mismos son las propiedades de la clase 
     private String nombreJugador;
     private ArrayList<Pregunta> preguntas;
     private int indiceActual;
     private int puntaje;
 
-    public Juego2(String nombreJugador) { 
+    public Juego2(String nombreJugador) { // Al crear la partida, guarda el nombre, ademas comienza en la primera pregunta con cero puntos
         this.nombreJugador = nombreJugador;
         this.indiceActual = 0;
         this.puntaje = 0;
         this.preguntas = new ArrayList<>();
 
-        cargarPreguntasReales();
+        cargarPreguntasReales();// Agrega las preguntas a la lista
     }
 
-    private void cargarPreguntasReales() {
+    private void cargarPreguntasReales() { // Cada Pregunta contiene: número, ruta de imagen, respuesta correcta (true = IA, false = humano) y explicación de la respuesta.
         preguntas.add(new Pregunta(1, "/imagenes/foto1.jpg", true, "Chivo: Estilisticamente, la imagén tiene esa suavidad caracterísitica que tienen muchas fotos con IA. \n" +
                 "Además Donald Trump, a pesar de tener varios cargos penales, nunca se ha visto en una situación similar\n" +
                 "Ya que el no representa el perfíl que ICE maneja para realizar sus arrestos."));
@@ -30,49 +30,49 @@ public class Juego2{
         preguntas.add(new Pregunta(10, "/imagenes/foto10.jpg", false, "Explicación 10: Ilustración conceptual con estilo y trazo de diseño humano."));
     }
 
-    public Pregunta obtenerPreguntaActual() {
+    public Pregunta obtenerPreguntaActual() {  // aca se busca la pregunta en la posición actual
         if (indiceActual < preguntas.size()) {
             return preguntas.get(indiceActual);
         }
-        return null;
+        return null; // Si ya no hay una pregunta en esa posición, devuelve null
     }
 
-    public boolean evaluarRespuesta(boolean respuestaUsuario) {
+    public boolean evaluarRespuesta(boolean respuestaUsuario) { // Obtiene la pregunta que el jugador está respondiendo
         Pregunta actual = obtenerPreguntaActual();
-        if (actual != null) {
+        if (actual != null) {// Compara respuestas
             boolean correcta = actual.esRespuestaCorrecta(respuestaUsuario);
             if (correcta) {
-                this.puntaje += 10;
+                this.puntaje += 10;// Si acierta, agrega 10 puntos
             }
-            return correcta;
+            return correcta;// Devuelve true si acertó o false si se equivocó
         }
-        return false;,ttjj
+        return false;,ttjj // Si no hay pregunta actual, no se puede evaluar la respuesta
     }
 
     public void avanzarSiguientePregunta() {
-        if (indiceActual < preguntas.size() - 1) {
+        if (indiceActual < preguntas.size() - 1) {// Aumenta el índice en 1, así hasta la ultima pregunta
             indiceActual++;
         }
     }
 
-    public boolean estaFinalizado() {
-        return indiceActual >= preguntas.size() - 1;
+    public boolean estaFinalizado() { 
+        return indiceActual >= preguntas.size() - 1;//cuando el índice llega a la última pregunta, incluso si esa última pregunta aún no se respondió, devolverá true
     }
 
-    public int getPuntaje() {
-        return puntaje;
+    public int getPuntaje() { 
+        return puntaje;// devuelve el puntaje obtenido 
     }
 
-    public int getIndiceActual() {
-        return indiceActual;
+    public int getIndiceActual() { 
+        return indiceActual;// Devuelve la posición de la pregunta actual
     }
 
-    public int getTotalPreguntas() {
-        return preguntas.size();
+    public int getTotalPreguntas() { 
+        return preguntas.size();// Devuelve cuántas preguntas hay en la lista
     }
 
     public String getNombreJugador() {
-        return nombreJugador;
+        return nombreJugador; // Devuelve el nombre del jugador
     }
 
 }
