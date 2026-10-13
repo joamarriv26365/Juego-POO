@@ -7,6 +7,12 @@ public class Juego {
     private int puntaje;
 
     public Juego(String nombreJugador) { 
+        this.nombreJugador = nombreJugador;
+        this.indiceActual = 0;
+        this.puntaje = 0;
+        this.preguntas = new ArrayList<>();
+
+        cargarPreguntasReales();
     }
 
     private void cargarPreguntasReales() {
