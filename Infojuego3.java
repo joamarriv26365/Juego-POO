@@ -1,6 +1,6 @@
 public class Infojuego {// Define la clase InfoJuego. Si se elimina, las demás clases no podrán encontrar esta definición estructural.
-  private String acercaDelProyecto; // Declara un atributo privado para el texto del proyecto. Si se elimina, no se podrá almacenar esta información.
-  private String instruccionesPregunta; // Declara un atributo privado para las instrucciones. Si se elimina, no se guardarán las directrices.
+  private String acercaDelProyecto; // Declara un atributo privado para el texto de las instrucciones. Si se elimina, no se podrá almacenar esta información.
+  private String instruccionesPregunta; // Declara un atributo privado para las respuestas que deben aparecer en cada imagen. Si se elimina, no se guardarán las directrices.
 
   public Infojuego(){ // Constructor de la clase que inicializa los textos. Si se elimina, la creación de instancias fallará.
     this.acercaDelProyecto =  // muestra y almacena el texto e instrucciones para el usuario. Si se elimina, la introducción del programa quedará vacía.
