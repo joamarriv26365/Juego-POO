@@ -37,7 +37,7 @@ public class Pregunta { // esta clase está enfocada en el proceso de las pregun
     }
 
     public boolean isEsIA() {
-        return esIA;
+        return esIA; // devuelve un boolean sobre si la pregunta es IA
     }
 
     public void setEsIA(boolean esIA) {
