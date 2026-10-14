@@ -3,9 +3,8 @@ public class Infojuego {
   private String instruccionesPregunta;
 
   public Infojuego(){
-    this.acercaDelProyecto = "=========================================================================\n" +  // muestra el texto 
+    this.acercaDelProyecto =  // muestra el texto e instrucciones para el usuario
                         "                    ACERCA DEL PROYECTO Y SU PROPÓSITO                    \n" +
-                        "=========================================================================\n" +
                         "Bienvenido al Evaluador de Contenido Generado por Inteligencia Artificial.\n\n" +
                         "El objetivo principal de este proyecto es poner a prueba el criterio del usuario\n" +
                         "al identificar recursos e imágenes visuales creadas mediante algoritmos de IA\n" +
@@ -13,8 +12,7 @@ public class Infojuego {
                         "¿Cómo funciona la evaluación?\n" +
                         "1. Observa el recurso o imagen asignada en cada pregunta.\n" +
                         "2. Analiza patrones como sombras, texturas, simetría en rostros o bordes.\n" +
-                        "3. Ingresa tu respuesta marcando la opción 1 (Es IA) o 2 (Es Humano).\n" +
-                        "-------------------------------------------------------------------------";
+                        "3. Ingresa tu respuesta marcando la opción 1 (Es IA) o 2 (Es Humano).\n";
   // muestra la pregunta y sus dos opciones de respuesta
         this.instruccionesPregunta =
                 "¿Este contenido fue creado por Inteligencia Artificial?\n" +
