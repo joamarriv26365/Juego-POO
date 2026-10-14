@@ -1,6 +1,6 @@
-public class Infojuego {
-  private String acercaDelProyecto;
-  private String instruccionesPregunta;
+public class Infojuego {// Define la clase InfoJuego. Si se elimina, las demás clases no podrán encontrar esta definición estructural.
+  private String acercaDelProyecto; // Declara una variable privada para el texto del proyecto. Si se elimina, no se podrá almacenar esta información.
+  private String instruccionesPregunta; // Declara una variable privada para las instrucciones. Si se elimina, no se guardarán las directrices.
 
   public Infojuego(){
     this.acercaDelProyecto =  // muestra el texto e instrucciones para el usuario
