@@ -46,7 +46,7 @@ public class Juego2{  // Datos de la partida, estos mismos son las propiedades d
             }
             return correcta;// Devuelve true si acertó o false si se equivocó
         }
-        return false;,ttjj // Si no hay pregunta actual, no se puede evaluar la respuesta
+        return false; // Si no hay pregunta actual, no se puede evaluar la respuesta
     }
 
     public void avanzarSiguientePregunta() {
