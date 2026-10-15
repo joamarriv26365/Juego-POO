@@ -1,10 +1,10 @@
-public class Pregunta { // esta clase está enfocada en el proceso de las preguntas realizadas en el juego, a continuacion se observan todos los atributos de esta 
+public class Pregunta {
     private int numero;
     private String rutaImagen;
     private boolean esIA;
     private String retroalimentacion;
 
-    public Pregunta(int numero, String rutaImagen, boolean esIA, String retroalimentacion) { // sobrecarga de atributos de la clase 
+    public Pregunta(int numero, String rutaImagen, boolean esIA, String retroalimentacion) {
         this.numero = numero;
         this.rutaImagen = rutaImagen;
         this.esIA = esIA;
@@ -12,39 +12,47 @@ public class Pregunta { // esta clase está enfocada en el proceso de las pregun
     }
 
     public boolean esRespuestaCorrecta(boolean respuestaUsuario) {
-        return this.esIA == respuestaUsuario;// devuelve un boolean sobre la respuesta emitida por el usuario
+
+        return this.esIA == respuestaUsuario;
     }
 
     public int getNumero() {
-        return numero;// devuelve el numero de pregunta en la que se encuentra el jugador
+
+        return numero;
     }
 
     public String getRutaImagen() {
-        return rutaImagen; // devuelve la ruta de imagen que corresponde a la pregunta
+
+        return rutaImagen;
     }
 
     public String getRetroalimentacion() {
-        return retroalimentacion; // devuelve la retroalimentacion sobre la imagen emitida
+        return retroalimentacion;
 
     }
 
     public void setNumero(int numero) {
+
         this.numero = numero;
     }
 
     public void setRutaImagen(String rutaImagen) {
+
         this.rutaImagen = rutaImagen;
     }
 
     public boolean isEsIA() {
-        return esIA; // devuelve un boolean sobre si la pregunta es IA
+
+        return esIA;
     }
 
     public void setEsIA(boolean esIA) {
+
         this.esIA = esIA;
     }
 
     public void setRetroalimentacion(String retroalimentacion) {
+
         this.retroalimentacion = retroalimentacion;
     }
 }

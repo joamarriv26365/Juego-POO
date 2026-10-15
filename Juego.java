@@ -80,7 +80,7 @@ public class Juego {
     }
 
     public void avanzarSiguientePregunta() {
-        if (indiceActual < preguntas.size() - 1) {
+        if (indiceActual < preguntas.size()) {
             indiceActual++;
         }
     }
@@ -91,18 +91,22 @@ public class Juego {
     }
 
     public int getPuntaje() {
+
         return puntaje;
     }
 
     public int getIndiceActual() {
+
         return indiceActual;
     }
 
     public int getTotalPreguntas() {
+
         return preguntas.size();
     }
 
     public String getNombreJugador() {
+
         return nombreJugador;
     }
 }

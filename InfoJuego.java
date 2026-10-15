@@ -5,7 +5,7 @@ public class InfoJuego {
     public InfoJuego() {
         this.acercaDelProyecto =
                 "=========================================================================\n" +
-                        "                    ACERCA DEL PROYECTO Y SU PROPÓSITO                    \n" +
+                        "                    ACERCA DEL PROYECTO                \n" +
                         "=========================================================================\n" +
                         "Bienvenido al Evaluador de Contenido Generado por Inteligencia Artificial.\n\n" +
                         "El objetivo de este proyecto no es lograr una inmunidad total ni pretender reconocer\n" +
@@ -27,14 +27,17 @@ public class InfoJuego {
     }
 
     public String getAcercaDelProyecto() {
+
         return acercaDelProyecto;
     }
 
     public String getInstruccionesPregunta() {
+
         return instruccionesPregunta;
     }
 
     public void setAcercaDelProyecto(String acercaDelProyecto) {
+
         this.acercaDelProyecto = acercaDelProyecto;
     }
 
