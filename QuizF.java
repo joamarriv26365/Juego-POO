@@ -332,4 +332,104 @@ public class QuizF implements ActionListener {
         if (respuestaProcesada) {
             return;
         }
+		respuestaProcesada = true;
+        button1.setEnabled(false);
+        button2.setEnabled(false);
+
+        boolean esCorrecta = false;
+
+        if (eleccion == '1' || eleccion == '2') {
+            esCorrecta = juego.evaluarRespuesta(eleccion == '1');
+        }
+
+        Pregunta actual = juego.obtenerPreguntaActual();
+
+        String mensaje;
+        String titulo;
+
+        if (eleccion == ' ') {
+            mensaje = "Se terminó el tiempo. No sumaste puntos.";
+            titulo = "Tiempo agotado";
+            etiquetaEstado.setText("  TIEMPO AGOTADO");
+            etiquetaEstado.setForeground(AMARILLO);
+
+        } else if (esCorrecta) {
+            mensaje = "¡Correcto! Has ganado 10 puntos.";
+            titulo = "Respuesta correcta";
+            etiquetaEstado.setText("  ¡RESPUESTA CORRECTA!  +10 PUNTOS");
+            etiquetaEstado.setForeground(VERDE);
+
+        } else {
+            mensaje = "Respuesta incorrecta. No has sumado puntos.";
+            titulo = "Respuesta incorrecta";
+            etiquetaEstado.setText("  RESPUESTA INCORRECTA");
+            etiquetaEstado.setForeground(ROJO);
+        }
+
+        Object[] opciones = {"Ver explicación", "Siguiente pregunta"};
+
+        int opcion = JOptionPane.showOptionDialog(frame,
+                mensaje + "\n\n¿Qué deseas hacer?",
+                titulo,
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.INFORMATION_MESSAGE,
+                null, opciones, opciones[1]);
+
+        if (opcion == 0 && actual != null) {
+            JOptionPane.showMessageDialog(frame,
+                    actual.getRetroalimentacion(),
+                    "Análisis de la imagen",
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
+
+        etiquetaPuntaje.setText("PUNTAJE  " + juego.getPuntaje() + " pts");
+
+        juego.avanzarSiguientePregunta();
+
+        if (juego.getIndiceActual() < juego.getTotalPreguntas()) {
+            nextQuestion();
+        } else {
+            results();
+        }
+    }
+
+    public void results() {
+        if (timer != null) {
+            timer.stop();
+        }
+
+        principal.removeAll();
+        principal.setLayout(new GridBagLayout());
+
+        int puntajeFinal = juego.getPuntaje();
+        int totalMaximo = juego.getTotalPreguntas() * 10;
+        int porcentaje = totalMaximo == 0 ? 0
+                : (int) ((double) puntajeFinal / totalMaximo * 100);
+
+        JPanel tarjeta = new JPanel();
+        tarjeta.setBackground(SUPERFICIE);
+        tarjeta.setBorder(new EmptyBorder(38, 48, 38, 48));
+        tarjeta.setLayout(new BoxLayout(tarjeta, BoxLayout.Y_AXIS));
+
+        JLabel insignia = crearEtiqueta("MISIÓN COMPLETADA", 11, CELESTE, true);
+        JLabel titulo = crearEtiqueta(
+                "¡Buen trabajo, " + juego.getNombreJugador() + "!", 25, TEXTO, true);
+        JLabel descripcion = crearEtiqueta(
+                "Has terminado el desafío de identificación visual.",
+                12, TEXTO_SECUNDARIO, false);
+        JLabel puntaje = crearEtiqueta(
+                puntajeFinal + " / " + totalMaximo, 48, AMARILLO, true);
+        JLabel puntosTexto = crearEtiqueta(
+                "PUNTOS OBTENIDOS", 10, TEXTO_SECUNDARIO, true);
+        JLabel mensaje = crearEtiqueta(
+                obtenerMensajeFinal(porcentaje), 13, TEXTO, false);
+
+        JLabel[] etiquetas = {
+            insignia, titulo, descripcion, puntaje, puntosTexto, mensaje
+        };
+
+        for (JLabel etiqueta : etiquetas) {
+            etiqueta.setAlignmentX(Component.CENTER_ALIGNMENT);
+        }
+
 }
