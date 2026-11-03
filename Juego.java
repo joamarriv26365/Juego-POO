@@ -1,7 +1,4 @@
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
@@ -20,7 +17,7 @@ public class Juego {
         cargarPreguntasDesdeTXT();
     }
 
-       private void cargarPreguntasDesdeTXT() {
+    private void cargarPreguntasDesdeTXT() {
         File archivo = new File(RUTA_TXT);
         if (!archivo.exists()) {
             System.out.println("No se encontró el archivo preguntas.txt en la raíz del proyecto.");
@@ -74,53 +71,46 @@ public class Juego {
         }
     }
 
-      public Pregunta obtenerPreguntaActual() {
+    public Pregunta obtenerPreguntaActual() {
         if (indiceActual >= 0 && indiceActual < preguntas.size()) {
             return preguntas.get(indiceActual);
         }
         return null;
     }
 
-     public boolean evaluarEleccionUsuario(char letraOpcion) {
+    public boolean evaluarRespuesta(boolean respuestaUsuario) {
         Pregunta actual = obtenerPreguntaActual();
-        if (actual == null) return false;
-        boolean respuestaUsuario = (Character.toUpperCase(letraOpcion) == 'A');
-        boolean esCorrecta = actual.esRespuestaCorrecta(respuestaUsuario);
-        if (esCorrecta) {
-            this.puntaje += (100 / (preguntas.size() > 0 ? preguntas.size() : 1));
+        if (actual != null) {
+            boolean correcta = actual.esRespuestaCorrecta(respuestaUsuario);
+            if (correcta) {
+                this.puntaje += (100 / (preguntas.size() > 0 ? preguntas.size() : 1));
+            }
+            return correcta;
         }
-        return esCorrecta;
+        return false;
     }
 
-      public void avanzarJuego() {
+    public void avanzarSiguientePregunta() {
         indiceActual++;
     }
 
-      public boolean estaFinalizado() {
+    public boolean estaFinalizado() {
         return indiceActual >= preguntas.size();
     }
 
-       public String getNombreJugador() {
-        return nombreJugador; }
-    public void setNombreJugador(String nombreJugador) {
-        this.nombreJugador = nombreJugador; }
-    public ArrayList<Pregunta> getPreguntas() {
-        return preguntas; }
-    public void setPreguntas(ArrayList<Pregunta> preguntas) {
-        this.preguntas = preguntas; }
-    public int getIndiceActual() {
-        return indiceActual; }
-    public void setIndiceActual(int indiceActual) {
-        this.indiceActual = indiceActual; }
     public int getPuntaje() {
-        return puntaje; }
-    public void setPuntaje(int puntaje) {
-        this.puntaje = puntaje; }
+        return puntaje;
+    }
+
+    public int getIndiceActual() {
+        return indiceActual;
+    }
+
     public int getTotalPreguntas() {
-        return preguntas.size(); }
-    public String getRutaTxt() {
-        return RUTA_TXT; }
+        return preguntas.size();
+    }
 
-    
-
+    public String getNombreJugador() {
+        return nombreJugador;
+    }
 }
