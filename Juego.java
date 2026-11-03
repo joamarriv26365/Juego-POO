@@ -73,6 +73,13 @@ public class Juego {
             System.err.println("Error al leer preguntas.txt: " + e.getMessage());
         }
     }
+
+      public Pregunta obtenerPreguntaActual() {
+        if (indiceActual >= 0 && indiceActual < preguntas.size()) {
+            return preguntas.get(indiceActual);
+        }
+        return null;
+    }
     
 
 }
