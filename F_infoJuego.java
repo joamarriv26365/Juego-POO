@@ -60,7 +60,7 @@ public class InfoJuego {
 
     public String getAcercaDelProyecto() { return acercaDelProyecto; }
     public void setAcercaDelProyecto(String acercaDelProyecto) { this.acercaDelProyecto = acercaDelProyecto; }
-
+    public void setInstruccionesPregunta(String instruccionesPregunta) { this.instruccionesPregunta = instruccionesPregunta; }
     public String getInstruccionesPregunta() { return instruccionesPregunta; }
 
 
