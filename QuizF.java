@@ -123,4 +123,36 @@ public class QuizF implements ActionListener {
         JPanel preguntaPanel = new JPanel();
         preguntaPanel.setOpaque(false);
         preguntaPanel.setLayout(new BoxLayout(preguntaPanel, BoxLayout.Y_AXIS));
+
+        JLabel seccion = crearEtiqueta("ANÁLISIS DE IMAGEN", 10, CELESTE, true);
+        JLabel pregunta = crearEtiqueta("¿REAL O GENERADA POR IA?", 21, TEXTO, true);
+        JLabel instruccion = crearEtiqueta(
+                "Observa los detalles antes de elegir tu respuesta.",
+                12, TEXTO_SECUNDARIO, false);
+
+        seccion.setAlignmentX(Component.CENTER_ALIGNMENT);
+        pregunta.setAlignmentX(Component.CENTER_ALIGNMENT);
+        instruccion.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        preguntaPanel.add(seccion);
+        preguntaPanel.add(Box.createVerticalStrut(7));
+        preguntaPanel.add(pregunta);
+        preguntaPanel.add(Box.createVerticalStrut(5));
+        preguntaPanel.add(instruccion);
+
+        JPanel imagenContenedor = new JPanel(new GridBagLayout());
+        imagenContenedor.setBackground(new Color(10, 16, 31));
+        imagenContenedor.setBorder(BorderFactory.createLineBorder(
+                new Color(57, 75, 111), 1));
+
+        etiquetaImagen = crearEtiqueta("Cargando imagen...", 14, TEXTO_SECUNDARIO, false);
+        etiquetaImagen.setHorizontalAlignment(SwingConstants.CENTER);
+        imagenContenedor.add(etiquetaImagen);
+
+        // Temporizador 
+        JPanel estadoPanel = new JPanel(new BorderLayout());
+        estadoPanel.setOpaque(false);
+
+        etiquetaEstado = crearEtiqueta(
+                "  Elige una opción para continuar", 12, TEXTO_SECUNDARIO, false);
 }
