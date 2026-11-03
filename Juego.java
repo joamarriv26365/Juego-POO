@@ -20,4 +20,59 @@ public class Juego {
         cargarPreguntasDesdeTXT();
     }
 
+       private void cargarPreguntasDesdeTXT() {
+        File archivo = new File(RUTA_TXT);
+        if (!archivo.exists()) {
+            System.out.println("No se encontró el archivo preguntas.txt en la raíz del proyecto.");
+            return;
+        }
+
+        try {
+            String contenidoTotal = new String(java.nio.file.Files.readAllBytes(archivo.toPath()), StandardCharsets.UTF_8);
+            String[] bloques = contenidoTotal.split("---");
+            int numPregunta = 1;
+
+            for (String bloque : bloques) {
+                bloque = bloque.trim();
+                if (bloque.isEmpty()) {
+                    continue;
+                }
+
+                String rutaImg = "";
+                boolean esIa = false;
+                StringBuilder retroBuilder = new StringBuilder();
+                boolean leyendoRetro = false;
+
+                String[] lineas = bloque.split("\n");
+                for (String linea : lineas) {
+                    String lineaTrim = linea.trim();
+
+                    if (lineaTrim.startsWith("IMAGEN:")) {
+                        rutaImg = lineaTrim.substring(7).trim();
+                        leyendoRetro = false;
+                    } else if (lineaTrim.startsWith("ES_IA:")) {
+                        esIa = Boolean.parseBoolean(lineaTrim.substring(6).trim().toLowerCase());
+                        leyendoRetro = false;
+                    } else if (lineaTrim.startsWith("RETRO:")) {
+                        retroBuilder.append(lineaTrim.substring(6).trim());
+                        leyendoRetro = true;
+                    } else if (leyendoRetro) {
+                        if (retroBuilder.length() > 0) {
+                            retroBuilder.append("\n");
+                        }
+                        retroBuilder.append(linea);
+                    }
+                }
+
+                if (!rutaImg.isEmpty()) {
+                    preguntas.add(new Pregunta(numPregunta++, rutaImg, esIa, retroBuilder.toString().trim().replace("\\n", "\n")));
+                }
+            }
+
+        } catch (Exception e) {
+            System.err.println("Error al leer preguntas.txt: " + e.getMessage());
+        }
+    }
+    
+
 }
