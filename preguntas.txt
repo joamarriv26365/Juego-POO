@@ -1,0 +1,26 @@
+---
+IMAGEN: /imagenes/foto1.jpg
+ES_IA: True
+RETRO: El papa nunca sería permitido vestir tan bien.
+---
+IMAGEN: /imagenes/foto2.jpg
+ES_IA: False
+RETRO:Verdadera foto de Epstein con Donald Trump.
+---
+IMAGEN: /imagenes/foto3.jpg
+ES_IA: True
+RETRO: Milei nunca se intereso en los incendios.
+---
+IMAGEN: /imagenes/foto4.jpg
+ES_IA: True
+RETRO: Obviamente es IA.
+---
+IMAGEN: /imagenes/foto11.jpg
+ES_IA: False
+RETRO: Como va a ser IA este lindo perrito.
+---
+---
+IMAGEN: /imagenes/santa.jpg
+ES_IA: True.
+RETRO: Indicios de IA en ese Santa.
+---
