@@ -64,12 +64,13 @@ public class Juego { // propiedades de la clase
                     }
                 }
 
-                if (!rutaImg.isEmpty()) {
-                    preguntas.add(new Pregunta(numPregunta++, rutaImg, esIa, retroBuilder.toString().trim().replace("\\n", "\n")));
+                if (!rutaImg.isEmpty()) { // Agrega la pregunta si tiene una ruta de imagen.
+                    preguntas.add(new Pregunta(numPregunta++, rutaImg, esIa, retroBuilder.toString().trim().replace("\\n", "\n"))); // Convierte el texto acumulado en String y
+                        // reemplaza los "\n" escritos por saltos reales.
                 }
             }
 
-        } catch (Exception e) {
+        } catch (Exception e) {  // Informa en consola si ocurre un error durante la carga.
             System.err.println("Error al leer preguntas.txt: " + e.getMessage());
         }
     }
