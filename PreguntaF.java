@@ -4,7 +4,7 @@ Public class PreguntaF{
     private boolean esIA; // true = Es IA, false = Es Humano
     private String retroalimentacion;
 
-    public Pregunta(int numero, String rutaImagen, boolean esIA, String retroalimentacion) {
+    public PreguntaF(int numero, String rutaImagen, boolean esIA, String retroalimentacion) {
         this.numero = numero;
         this.rutaImagen = rutaImagen;
         this.esIA = esIA;
