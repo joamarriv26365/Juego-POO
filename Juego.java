@@ -96,6 +96,10 @@ public class Juego {
         indiceActual++;
     }
 
+      public boolean estaFinalizado() {
+        return indiceActual >= preguntas.size();
+    }
+
     
 
 }
