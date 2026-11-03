@@ -187,4 +187,67 @@ public class QuizF implements ActionListener {
         // Botones para responder
         JPanel respuestas = new JPanel(new GridLayout(1, 2, 16, 0));
         respuestas.setOpaque(false);
+        button1 = crearBoton("SÍ, ES IA", MORADO, TEXTO);
+        button2 = crearBoton("NO, ES HUMANO", SUPERFICIE_CLARA, TEXTO);
+
+        button1.addActionListener(this);
+        button2.addActionListener(this);
+
+        respuestas.add(button1);
+        respuestas.add(button2);
+
+        JPanel pie = new JPanel(new BorderLayout(0, 9));
+        pie.setOpaque(false);
+
+        JLabel nota = crearEtiqueta(
+                "CONSEJO: analiza sombras, texturas, proporciones y pequeños detalles.",
+                11, TEXTO_SECUNDARIO, false);
+        nota.setHorizontalAlignment(SwingConstants.CENTER);
+
+        pie.add(respuestas, BorderLayout.CENTER);
+        pie.add(nota, BorderLayout.SOUTH);
+
+        centro.add(progresoPanel, BorderLayout.NORTH);
+        centro.add(tarjeta, BorderLayout.CENTER);
+        centro.add(pie, BorderLayout.SOUTH);
+
+        principal.add(encabezado, BorderLayout.NORTH);
+        principal.add(centro, BorderLayout.CENTER);
+
+        frame.setContentPane(principal);
+    }
+
+    private JButton crearBoton(String texto, Color fondo, Color colorTexto) {
+        JButton boton = new JButton(texto);
+        boton.setFont(new Font("SansSerif", Font.BOLD, 14));
+        boton.setForeground(colorTexto);
+        boton.setBackground(fondo);
+        boton.setFocusPainted(false);
+        boton.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(fondo.brighter()),
+                new EmptyBorder(15, 12, 15, 12)));
+        boton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        boton.setOpaque(true);
+        return boton;
+    }
+
+    public void nextQuestion() {
+        if (juego.estaFinalizado()) {
+            results();
+            return;
+        }
+
+        respuestaProcesada = false;
+        Pregunta p = juego.obtenerPreguntaActual();
+
+        etiquetaJugador.setText("JUGADOR  |  " + juego.getNombreJugador());
+        etiquetaProgreso.setText("PROGRESO  " + (juego.getIndiceActual() + 1)
+                + " / " + juego.getTotalPreguntas());
+
+        barraProgreso.setMaximum(juego.getTotalPreguntas());
+        barraProgreso.setValue(juego.getIndiceActual());
+
+        etiquetaPuntaje.setText("PUNTAJE  " + juego.getPuntaje() + " pts");
+        etiquetaEstado.setText("  Elige una opción para continuar");
+        etiquetaEstado.setForeground(TEXTO_SECUNDARIO);
 }
