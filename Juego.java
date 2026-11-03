@@ -80,6 +80,17 @@ public class Juego {
         }
         return null;
     }
+
+     public boolean evaluarEleccionUsuario(char letraOpcion) {
+        Pregunta actual = obtenerPreguntaActual();
+        if (actual == null) return false;
+        boolean respuestaUsuario = (Character.toUpperCase(letraOpcion) == 'A');
+        boolean esCorrecta = actual.esRespuestaCorrecta(respuestaUsuario);
+        if (esCorrecta) {
+            this.puntaje += (100 / (preguntas.size() > 0 ? preguntas.size() : 1));
+        }
+        return esCorrecta;
+    }
     
 
 }
