@@ -431,5 +431,51 @@ public class QuizF implements ActionListener {
         for (JLabel etiqueta : etiquetas) {
             etiqueta.setAlignmentX(Component.CENTER_ALIGNMENT);
         }
+		JProgressBar resultadoBarra = new JProgressBar(0, 100);
+        resultadoBarra.setValue(porcentaje);
+        resultadoBarra.setString(porcentaje + "% de efectividad");
+        resultadoBarra.setStringPainted(true);
+        resultadoBarra.setForeground(VERDE);
+        resultadoBarra.setBackground(SUPERFICIE_CLARA);
+        resultadoBarra.setBorderPainted(false);
+        resultadoBarra.setMaximumSize(new Dimension(360, 22));
+        resultadoBarra.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        JButton salir = crearBoton("CERRAR JUEGO", MORADO, TEXTO);
+        salir.setAlignmentX(Component.CENTER_ALIGNMENT);
+        salir.addActionListener(e -> frame.dispose());
+
+        tarjeta.add(insignia);
+        tarjeta.add(Box.createVerticalStrut(16));
+        tarjeta.add(titulo);
+        tarjeta.add(Box.createVerticalStrut(8));
+        tarjeta.add(descripcion);
+        tarjeta.add(Box.createVerticalStrut(30));
+        tarjeta.add(puntaje);
+        tarjeta.add(Box.createVerticalStrut(2));
+        tarjeta.add(puntosTexto);
+        tarjeta.add(Box.createVerticalStrut(20));
+        tarjeta.add(resultadoBarra);
+        tarjeta.add(Box.createVerticalStrut(20));
+        tarjeta.add(mensaje);
+        tarjeta.add(Box.createVerticalStrut(30));
+        tarjeta.add(salir);
+
+        principal.add(tarjeta);
+        principal.revalidate();
+        principal.repaint();
+    }
+
+    private String obtenerMensajeFinal(int porcentaje) {
+        if (porcentaje >= 90) {
+            return "¡Excelente observación! Tienes un gran ojo para los detalles.";
+        } else if (porcentaje >= 70) {
+            return "¡Muy buen resultado! Sigue afinando tu capacidad de análisis.";
+        } else if (porcentaje >= 50) {
+            return "Buen intento. Practicar te ayudará a reconocer más señales.";
+        }
+
+        return "¡Sigue practicando! Distinguir imágenes de IA puede ser un reto.";
+    }
 
 }
