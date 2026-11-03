@@ -155,4 +155,36 @@ public class QuizF implements ActionListener {
 
         etiquetaEstado = crearEtiqueta(
                 "  Elige una opción para continuar", 12, TEXTO_SECUNDARIO, false);
+        JPanel tiempoPanel = new JPanel(new BorderLayout(10, 5));
+        tiempoPanel.setOpaque(false);
+
+        JPanel tiempoTexto = new JPanel(new BorderLayout());
+        tiempoTexto.setOpaque(false);
+        tiempoTexto.add(crearEtiqueta("TIEMPO RESTANTE", 9, TEXTO_SECUNDARIO, true),
+                BorderLayout.WEST);
+
+        etiquetaTemporizador = crearEtiqueta("15 s", 20, CELESTE, true);
+        etiquetaTemporizador.setHorizontalAlignment(SwingConstants.RIGHT);
+        tiempoTexto.add(etiquetaTemporizador, BorderLayout.EAST);
+
+        barraTiempo = new JProgressBar(0, 15);
+        barraTiempo.setValue(15);
+        barraTiempo.setPreferredSize(new Dimension(110, 6));
+        barraTiempo.setBorderPainted(false);
+        barraTiempo.setForeground(CELESTE);
+        barraTiempo.setBackground(SUPERFICIE_CLARA);
+
+        tiempoPanel.add(tiempoTexto, BorderLayout.NORTH);
+        tiempoPanel.add(barraTiempo, BorderLayout.SOUTH);
+
+        estadoPanel.add(etiquetaEstado, BorderLayout.WEST);
+        estadoPanel.add(tiempoPanel, BorderLayout.EAST);
+
+        tarjeta.add(preguntaPanel, BorderLayout.NORTH);
+        tarjeta.add(imagenContenedor, BorderLayout.CENTER);
+        tarjeta.add(estadoPanel, BorderLayout.SOUTH);
+
+        // Botones para responder
+        JPanel respuestas = new JPanel(new GridLayout(1, 2, 16, 0));
+        respuestas.setOpaque(false);
 }
