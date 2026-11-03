@@ -1,0 +1,14 @@
+public class InfoJuego {
+
+    public InfoJuego() {
+    }
+
+    private void cargarInfoDesdeTXT() {
+        }
+
+    public String getAcercaDelProyecto() { return acercaDelProyecto; }
+
+    public String getInstruccionesPregunta() { return instruccionesPregunta; }
+
+
+}
