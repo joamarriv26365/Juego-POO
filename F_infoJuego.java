@@ -59,6 +59,7 @@ public class InfoJuego {
     }
 
     public String getAcercaDelProyecto() { return acercaDelProyecto; }
+    public void setAcercaDelProyecto(String acercaDelProyecto) { this.acercaDelProyecto = acercaDelProyecto; }
 
     public String getInstruccionesPregunta() { return instruccionesPregunta; }
 
