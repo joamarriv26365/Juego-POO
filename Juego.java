@@ -99,11 +99,11 @@ public class Juego { // propiedades de la clase
         indiceActual++;
     }
 
-    public boolean estaFinalizado() {
+    public boolean estaFinalizado() {// Indica si ya se recorrieron todas las preguntas
         return indiceActual >= preguntas.size();
     }
 
-    public int getPuntaje() {
+    public int getPuntaje() {// Métodos para consultar datos sin acceder directamente a los atributos
         return puntaje;
     }
 
