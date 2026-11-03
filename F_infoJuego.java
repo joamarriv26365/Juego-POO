@@ -17,11 +17,12 @@ public class InfoJuego {
 
     private void cargarInfoDesdeTXT() {
         File archivo = new File(RUTA_TXT);
+        // Valida si el archivo existe antes de intentar leerlo
         if (!archivo.exists()) {
             System.out.println("No se encontró el archivo info.txt en la raíz del proyecto.");
             return;
         }
-
+        // Lee el archivo línea por línea usando codificación UTF-8 para evitar errores con tildes
         try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(archivo), StandardCharsets.UTF_8))) {
             String linea;
             StringBuilder acercaBuilder = new StringBuilder();
@@ -30,7 +31,7 @@ public class InfoJuego {
 
             while ((linea = br.readLine()) != null) {
                 String lineaTrim = linea.trim();
-
+                // Detecta las etiquetas para cambiar de sección según el contenido del archivo
                 if (lineaTrim.equals("[ACERCA]")) {
                     seccionActual = "ACERCA";
                     continue;
