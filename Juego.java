@@ -100,6 +100,27 @@ public class Juego {
         return indiceActual >= preguntas.size();
     }
 
+       public String getNombreJugador() {
+        return nombreJugador; }
+    public void setNombreJugador(String nombreJugador) {
+        this.nombreJugador = nombreJugador; }
+    public ArrayList<Pregunta> getPreguntas() {
+        return preguntas; }
+    public void setPreguntas(ArrayList<Pregunta> preguntas) {
+        this.preguntas = preguntas; }
+    public int getIndiceActual() {
+        return indiceActual; }
+    public void setIndiceActual(int indiceActual) {
+        this.indiceActual = indiceActual; }
+    public int getPuntaje() {
+        return puntaje; }
+    public void setPuntaje(int puntaje) {
+        this.puntaje = puntaje; }
+    public int getTotalPreguntas() {
+        return preguntas.size(); }
+    public String getRutaTxt() {
+        return RUTA_TXT; }
+
     
 
 }
