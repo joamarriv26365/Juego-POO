@@ -25,4 +25,75 @@ public class QuizF implements ActionListener {
     private final Color VERDE = new Color(77, 205, 151);
     private final Color AMARILLO = new Color(255, 193, 92);
     private final Color ROJO = new Color(255, 112, 112);
+
+    public QuizF(String nombreJugador) {
+        juego = new Juego(nombreJugador);
+
+        frame = new JFrame("AI Detector | Desafío visual");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(900, 790);
+        frame.setMinimumSize(new Dimension(760, 700));
+        frame.setLocationRelativeTo(null);
+
+        construirInterfaz();
+
+        timer = new Timer(1000, e -> {
+            seconds--;
+            actualizarTemporizador();
+
+            if (seconds <= 0) {
+                timer.stop();
+                procesarRespuestaGUI(' ');
+            }
+        });
+
+        frame.setVisible(true);
+
+        JOptionPane.showMessageDialog(frame,
+                info.getAcercaDelProyecto(),
+                "Acerca del proyecto",
+                JOptionPane.INFORMATION_MESSAGE);
+
+        nextQuestion();
+    }
+
+    private JLabel crearEtiqueta(String texto, int tamano, Color color, boolean negrita) {
+        JLabel etiqueta = new JLabel(texto);
+        etiqueta.setFont(new Font("SansSerif",
+                negrita ? Font.BOLD : Font.PLAIN, tamano));
+        etiqueta.setForeground(color);
+        return etiqueta;
+    }
+
+    private void construirInterfaz() {
+        principal = new JPanel(new BorderLayout(0, 18));
+        principal.setBackground(FONDO);
+        principal.setBorder(new EmptyBorder(24, 34, 26, 34));
+
+        // Encabezado
+        JPanel encabezado = new JPanel(new BorderLayout());
+        encabezado.setOpaque(false);
+
+        JPanel marca = new JPanel();
+        marca.setOpaque(false);
+        marca.setLayout(new BoxLayout(marca, BoxLayout.Y_AXIS));
+
+        marca.add(crearEtiqueta("AI DETECTOR", 25, TEXTO, true));
+        marca.add(Box.createVerticalStrut(4));
+        marca.add(crearEtiqueta("DESAFÍO DE IDENTIFICACIÓN VISUAL", 10, CELESTE, true));
+
+        JPanel datos = new JPanel();
+        datos.setOpaque(false);
+        datos.setLayout(new BoxLayout(datos, BoxLayout.Y_AXIS));
+
+        etiquetaJugador = crearEtiqueta("", 13, TEXTO, true);
+        etiquetaPuntaje = crearEtiqueta("PUNTAJE  0 pts", 11, AMARILLO, true);
+        etiquetaPuntaje.setAlignmentX(Component.RIGHT_ALIGNMENT);
+
+        datos.add(etiquetaJugador);
+        datos.add(Box.createVerticalStrut(7));
+        datos.add(etiquetaPuntaje);
+
+        encabezado.add(marca, BorderLayout.WEST);
+        encabezado.add(datos, BorderLayout.EAST);
 }
