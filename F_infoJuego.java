@@ -39,14 +39,14 @@ public class InfoJuego {
                     seccionActual = "INSTRUCCIONES";
                     continue;
                 }
-
+                // Agrega el texto a su respectivo acumulador según la sección activa
                 if (seccionActual.equals("ACERCA")) {
                     acercaBuilder.append(linea).append("\n");
                 } else if (seccionActual.equals("INSTRUCCIONES")) {
                     instBuilder.append(linea).append("\n");
                 }
             }
-
+            // Guarda el texto acumulado en las variables de la clase si contienen datos
             if (acercaBuilder.length() > 0) {
                 this.acercaDelProyecto = acercaBuilder.toString().trim().replace("\\n", "\n");
             }
@@ -59,6 +59,7 @@ public class InfoJuego {
         }
     }
 
+    // Getters y Setters completos
     public String getAcercaDelProyecto() { return acercaDelProyecto; }
     public void setAcercaDelProyecto(String acercaDelProyecto) { this.acercaDelProyecto = acercaDelProyecto; }
     public void setInstruccionesPregunta(String instruccionesPregunta) { this.instruccionesPregunta = instruccionesPregunta; }
