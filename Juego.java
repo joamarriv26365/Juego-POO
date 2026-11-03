@@ -1,6 +1,8 @@
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 public class Juego {
@@ -8,5 +10,4 @@ public class Juego {
     private ArrayList<Pregunta> preguntas;
     private int indiceActual;
     private int puntaje;
-    private final String RUTA_CSV = "preguntas.csv";
-}
+    private final String RUTA_TXT = "preguntas.txt";
