@@ -3,7 +3,7 @@ import java.awt.event.*;
 import java.net.URL;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-public class QuizF implements ActionListener {
+public class Quiz implements ActionListener {
     private Juego juego;
     private InfoJuego info = new InfoJuego();
     private JFrame frame;
@@ -26,7 +26,7 @@ public class QuizF implements ActionListener {
     private final Color AMARILLO = new Color(255, 193, 92);
     private final Color ROJO = new Color(255, 112, 112);
 
-    public QuizF(String nombreJugador) {
+    public Quiz(String nombreJugador) {
         juego = new Juego(nombreJugador);
 
         frame = new JFrame("AI Detector | Desafío visual");
