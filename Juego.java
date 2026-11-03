@@ -75,18 +75,19 @@ public class Juego { // propiedades de la clase
         }
     }
 
-    public Pregunta obtenerPreguntaActual() {
+    public Pregunta obtenerPreguntaActual() { // Devuelve la pregunta actual o null si el índice no es válido
         if (indiceActual >= 0 && indiceActual < preguntas.size()) {
             return preguntas.get(indiceActual);
         }
         return null;
     }
 
-    public boolean evaluarRespuesta(boolean respuestaUsuario) {
+    public boolean evaluarRespuesta(boolean respuestaUsuario) {// Comprueba la respuesta y suma puntos si es correcta
         Pregunta actual = obtenerPreguntaActual();
         if (actual != null) {
             boolean correcta = actual.esRespuestaCorrecta(respuestaUsuario);
-            if (correcta) {
+            if (correcta) {// Reparte 100 puntos entre las preguntas.
+                // La división entera descarta los decimales
                 this.puntaje += (100 / (preguntas.size() > 0 ? preguntas.size() : 1));
             }
             return correcta;
@@ -94,7 +95,7 @@ public class Juego { // propiedades de la clase
         return false;
     }
 
-    public void avanzarSiguientePregunta() {
+    public void avanzarSiguientePregunta() {//Cambia el índice para pasar a la siguiente pregunta
         indiceActual++;
     }
 
