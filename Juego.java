@@ -1,15 +1,16 @@
+/// Herramientas para manejar archivos, codificación de texto y listas.
 import java.io.File;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
-public class Juego {
+public class Juego { // propiedades de la clase 
     private String nombreJugador;
     private ArrayList<Pregunta> preguntas;
     private int indiceActual;
     private int puntaje;
-    private final String RUTA_TXT = "preguntas.txt";
+    private final String RUTA_TXT = "preguntas.txt"; // Ruta relativa al directorio desde el que se ejecuta el programa.
 
-    public Juego(String nombreJugador) {
+    public Juego(String nombreJugador) { // Prepara una partida y carga las preguntas.
         this.nombreJugador = nombreJugador;
         this.indiceActual = 0;
         this.puntaje = 0;
@@ -17,25 +18,27 @@ public class Juego {
         cargarPreguntasDesdeTXT();
     }
 
-    private void cargarPreguntasDesdeTXT() {
+    private void cargarPreguntasDesdeTXT() { // Lee el archivo y convierte cada bloque en un objeto Pregunta.
         File archivo = new File(RUTA_TXT);
         if (!archivo.exists()) {
             System.out.println("No se encontró el archivo preguntas.txt en la raíz del proyecto.");
             return;
         }
 
-        try {
+        try { // Lee los bytes y los interpreta como texto UTF-8. Esto, permite representar texto en prácticamente cualquier idioma del mundo.
+            // toPath() proporciona la ruta que necesita readAllBytes(). toPath, es permite que UTF-8 se lleve a cabo 
             String contenidoTotal = new String(java.nio.file.Files.readAllBytes(archivo.toPath()), StandardCharsets.UTF_8);
-            String[] bloques = contenidoTotal.split("---");
+            String[] bloques = contenidoTotal.split("---");   // Cada "---" separa una pregunta de la siguiente.
             int numPregunta = 1;
 
             for (String bloque : bloques) {
                 bloque = bloque.trim();
-                if (bloque.isEmpty()) {
+                if (bloque.isEmpty()) {  // Ignora bloques sin contenido
                     continue;
                 }
 
-                String rutaImg = "";
+                String rutaImg = "";    // Datos temporales de cada pregunta.
+
                 boolean esIa = false;
                 StringBuilder retroBuilder = new StringBuilder();
                 boolean leyendoRetro = false;
@@ -45,15 +48,15 @@ public class Juego {
                     String lineaTrim = linea.trim();
 
                     if (lineaTrim.startsWith("IMAGEN:")) {
-                        rutaImg = lineaTrim.substring(7).trim();
+                        rutaImg = lineaTrim.substring(7).trim(); // Extrae el texto después de "IMAGEN:".
                         leyendoRetro = false;
-                    } else if (lineaTrim.startsWith("ES_IA:")) {
+                    } else if (lineaTrim.startsWith("ES_IA:")) { // Convierte el valor leído a true o false.
                         esIa = Boolean.parseBoolean(lineaTrim.substring(6).trim().toLowerCase());
                         leyendoRetro = false;
-                    } else if (lineaTrim.startsWith("RETRO:")) {
+                    } else if (lineaTrim.startsWith("RETRO:")) {  // Comienza a guardar la retroalimentación.
                         retroBuilder.append(lineaTrim.substring(6).trim());
                         leyendoRetro = true;
-                    } else if (leyendoRetro) {
+                    } else if (leyendoRetro) { // Agrega las siguientes líneas de la explicación.
                         if (retroBuilder.length() > 0) {
                             retroBuilder.append("\n");
                         }
