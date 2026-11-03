@@ -96,4 +96,31 @@ public class QuizF implements ActionListener {
 
         encabezado.add(marca, BorderLayout.WEST);
         encabezado.add(datos, BorderLayout.EAST);
+
+        // Área central
+        JPanel centro = new JPanel(new BorderLayout(0, 14));
+        centro.setOpaque(false);
+
+        JPanel progresoPanel = new JPanel(new BorderLayout(0, 8));
+        progresoPanel.setOpaque(false);
+
+        etiquetaProgreso = crearEtiqueta("", 12, TEXTO_SECUNDARIO, true);
+
+        barraProgreso = new JProgressBar(0, 10);
+        barraProgreso.setPreferredSize(new Dimension(100, 7));
+        barraProgreso.setBorderPainted(false);
+        barraProgreso.setForeground(CELESTE);
+        barraProgreso.setBackground(SUPERFICIE_CLARA);
+
+        progresoPanel.add(etiquetaProgreso, BorderLayout.WEST);
+        progresoPanel.add(barraProgreso, BorderLayout.SOUTH);
+
+        // Tarjeta de pregunta
+        JPanel tarjeta = new JPanel(new BorderLayout(0, 14));
+        tarjeta.setBackground(SUPERFICIE);
+        tarjeta.setBorder(new EmptyBorder(22, 24, 22, 24));
+
+        JPanel preguntaPanel = new JPanel();
+        preguntaPanel.setOpaque(false);
+        preguntaPanel.setLayout(new BoxLayout(preguntaPanel, BoxLayout.Y_AXIS));
 }
