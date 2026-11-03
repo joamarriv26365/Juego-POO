@@ -1,9 +1,15 @@
 public class InfoJuego {
 
     public InfoJuego() {
+        private String acercaDelProyecto;
+        private String instruccionesPregunta;
+        private final String RUTA_TXT = "info.txt";
     }
 
     private void cargarInfoDesdeTXT() {
+        this.acercaDelProyecto = "Información institucional no cargada.";
+        this.instruccionesPregunta = "¿Este contenido fue creado por Inteligencia Artificial?\nA. Sí\nB. No";
+        cargarInfoDesdeTXT();
         }
 
     public String getAcercaDelProyecto() { return acercaDelProyecto; }
