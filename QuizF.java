@@ -250,4 +250,86 @@ public class QuizF implements ActionListener {
         etiquetaPuntaje.setText("PUNTAJE  " + juego.getPuntaje() + " pts");
         etiquetaEstado.setText("  Elige una opción para continuar");
         etiquetaEstado.setForeground(TEXTO_SECUNDARIO);
+        cargarImagen(p);
+
+        button1.setEnabled(true);
+        button2.setEnabled(true);
+
+        seconds = 15;
+        actualizarTemporizador();
+        timer.start();
+    }
+
+
+	private void cargarImagen(Pregunta pregunta) {
+	
+	    try {
+	
+	        URL url = getClass().getResource(pregunta.getRutaImagen());
+	
+	        if (url == null) {
+	            throw new Exception("No se encontró la imagen.");
+	        }
+	
+	        ImageIcon imagen = new ImageIcon(url);
+	
+	        int ancho = imagen.getIconWidth();
+	        int alto = imagen.getIconHeight();
+	
+	        int anchoDisponible = etiquetaImagen.getParent().getWidth() - 30;
+	        int altoDisponible = etiquetaImagen.getParent().getHeight() - 30;
+	
+	        double escala = Math.min(
+	                (double) anchoDisponible / ancho,
+	                (double) altoDisponible / alto
+	        );
+	
+	        escala = Math.min(escala, 1.0);
+	
+	        Image ajustada = imagen.getImage().getScaledInstance(
+	                (int) (ancho * escala),
+	                (int) (alto * escala),
+	                Image.SCALE_SMOOTH
+	        );
+	
+	        etiquetaImagen.setIcon(new ImageIcon(ajustada));
+	        etiquetaImagen.setText("");
+	
+	    } catch (Exception ex) {
+	
+	        etiquetaImagen.setIcon(null);
+	        etiquetaImagen.setText("Imagen no disponible");
+	
+	        System.out.println(ex.getMessage());
+	    }
+	}
+
+
+    private void actualizarTemporizador() {
+        etiquetaTemporizador.setText(seconds + " s");
+        barraTiempo.setValue(seconds);
+
+        Color color = seconds <= 5 ? ROJO : CELESTE;
+        etiquetaTemporizador.setForeground(color);
+        barraTiempo.setForeground(color);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (respuestaProcesada) {
+            return;
+        }
+
+        timer.stop();
+        button1.setEnabled(false);
+        button2.setEnabled(false);
+
+        char eleccion = (e.getSource() == button1) ? '1' : '2';
+        procesarRespuestaGUI(eleccion);
+    }
+
+    private void procesarRespuestaGUI(char eleccion) {
+        if (respuestaProcesada) {
+            return;
+        }
 }
