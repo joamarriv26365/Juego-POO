@@ -53,6 +53,13 @@ public class InfoJuego {
         }
 
     }
+    public String getAcercaDelProyecto() {
+        return acercaDelProyecto;
+    }
+
+    public String getInstruccionesPregunta() {
+        return instruccionesPregunta;
+    }
     
 
 }
