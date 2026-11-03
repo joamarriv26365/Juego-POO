@@ -91,6 +91,11 @@ public class Juego {
         }
         return esCorrecta;
     }
+
+      public void avanzarJuego() {
+        indiceActual++;
+    }
+
     
 
 }
