@@ -1,0 +1,24 @@
+[ACERCA]
+=========================================================================
+                    ACERCA DEL PROYECTO                    
+=========================================================================
+Bienvenido al Evaluador de Contenido Generado por Inteligencia Artificial.
+
+El objetivo de este proyecto no es lograr una inmunidad total ni pretender reconocer
+absolutamente todo lo generado por IA, ya que los modelos son cada vez mas efectivos
+al replicar la realidad.
+
+El proposito de esta pequena actividad es que comprendas que situaciones y contextos
+deben encender tus alarmas para desarrollar el pensamiento critico suficiente,
+aprender a dudar de lo que ves, lidiar con estas tecnologias y evitar problemas.
+
+Como funciona la evaluacion?
+1. Observa la imagen.
+2. Analiza la posibilidad de que sea real o no.
+3. Elige la opcion que consideres correcta.
+4. Ve la explicacion detallada para comprender el contexto.
+-------------------------------------------------------------------------
+[INSTRUCCIONES]
+Vendame verduras:
+1. Sí (Es IA)aa
+2. No (Es Humano)aa
