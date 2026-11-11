@@ -1,26 +1,46 @@
 ---
 IMAGEN: /imagenes/foto1.jpg
 ES_IA: True
-RETRO: El papa nunca sería permitido vestir tan bien.
+RETRO:Aquí falla la coherencia de la física y la luz. El abrigo es excesivamente voluminoso y "perfecto", como si estuviera inflado. Si te fijas en la mano izquierda (la que cuelga), los dedos están mal definidos y la piel parece de plástico. El cuello del abrigo se fusiona de manera extraña con la camisa y la cruz. El fondo tiene un desenfoque que se siente artificial, y el hombre del fondo a la derecha tiene la cara distorsionada.
 ---
 IMAGEN: /imagenes/foto2.jpg
 ES_IA: False
-RETRO:Verdadera foto de Epstein con Donald Trump.
+RETRO: Aquí entran en juego textura y el ruido. Es una foto analógica escaneada o una cámara de los 90. Tiene grano natural, imperfecciones en la piel (poros, arrugas), y la iluminación de flash directo. La mano que se ve en el hombro izquierdo tiene dedos que en términos simples se ven normales. La corbata tiene una textura de tela real. Las IA modernas rara vez generan este tipo de "ruido" fotográfico sin que se vea forzado.
 ---
 IMAGEN: /imagenes/foto3.jpg
 ES_IA: True
-RETRO: Milei nunca se intereso en los incendios.
+RETRO: Para esta foto el truco esta en los detalles. Mira el fondo: los bomberos de atrás están completamente deformados (caras derretidas, cascos que no coinciden). El apretón de manos es el punto más delator: los dedos se fusionan y la mano del bombero parece no tener nudillos reales. El fuego y el humo son demasiado "suaves" y carecen de la turbulencia caótica del fuego real. Además también entra en juego el análisis crítico que es importante al lidiar con imágenes falsas. Realísticamente, Javier Milei no arriesgaría su vida por una foto.
 ---
 IMAGEN: /imagenes/foto4.jpg
 ES_IA: True
-RETRO: Obviamente es IA.
+RETRO: La IA es muy buena imitando el estilo, pero falla en la coherencia estructural. Mira las manos del chico en los bolsillos: la tela se arruga de forma extraña. El fondo (la calle) es un desenfoque genérico que no tiene perspectiva lógica. Los ojos de la chica de la derecha tienen un brillo excesivo y la expresión es un poco "rígida". La ropa del chico de atrás en el fondo está mal definida.
 ---
 IMAGEN: /imagenes/foto11.jpg
 ES_IA: False
-RETRO: Como va a ser IA este lindo perrito.
+RETRO: Nuevamente entran el juego él ruido y el contexto de la foto. La foto tiene un ruido de sensor de cámara antigua o de móvil viejo. La textura de la manta (el cojín de rayas verdes) es real. El pelaje del perro es irregular, con mechones despeinados. El fondo (la tele y el mueble) está desordenado y tiene una lógica doméstica real. Las IA tienden a limpiar demasiado el fondo.
 ---
 ---
 IMAGEN: /imagenes/santa.jpg
-ES_IA: True.
-RETRO: Indicios de IA en ese Santa.
+ES_IA: True
+RETRO: Las fotos más sospechosas son las que son demasiado perfectas. Es un render 3D. Los guantes verdes no tienen costuras lógicas. La barba es demasiado suave y simétrica, como algodón. La nariz tiene un brillo excesivo. El cinturón y la hebilla están perfectamente centrados, pero la hebilla no tiene un mecanismo real. Los ojos tienen un brillo de "muñeco". Es un personaje genérico de IA.
+---
+---
+IMAGEN: /imagenes/foto6.jpg
+ES_IA: False
+RETRO: Esta es una foto algo engañosa. En 2017, fue editada una foto de Obama dándole una medalla a Bruce Springsteen por un sitio de noticias satíricas y la imagen se volvió viral. Esta foto es un ejemplo importante en el ejercicio ya que representa fotos que aunque obviamente no sean reales, no están hechas necesariamente por IA. 
+---
+---
+IMAGEN: /imagenes/aguacate.jpg
+ES_IA: True
+RETRO: Es un personaje 3D. Los motores de IA generan este tipo de renders con una iluminación y textura "perfectas" pero sin lógica física. Fíjate en los dientes: son un bloque continuo sin separación individual (un error clásico de la IA al intentar replicar la estructura dental). Las manos (los bracitos verdes) no tienen articulaciones reales, son solo protuberancias. Además, el reflejo en los ojos es idéntico en ambos, algo que no pasa en la realidad.
+---
+---
+IMAGEN: /imagenes/kirky.jpg
+ES_IA: False
+RETRO: Foto de una señora.
+---
+---
+IMAGEN: /imagenes/foto9.jpg
+ES_IA: True
+RETRO: Foto de una señora.
 ---

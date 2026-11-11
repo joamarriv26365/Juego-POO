@@ -1,24 +1,23 @@
 [ACERCA]
-=========================================================================
-                    ACERCA DEL PROYECTO                    
-=========================================================================
-Bienvenido al Evaluador de Contenido Generado por Inteligencia Artificial.
+¡BIENVENIDO A AI DETECTOR!
 
-El objetivo de este proyecto no es lograr una inmunidad total ni pretender reconocer
-absolutamente todo lo generado por IA, ya que los modelos son cada vez mas efectivos
-al replicar la realidad.
+Pon a prueba tu capacidad para distinguir imágenes creadas por inteligencia artificial de aquellas realizadas por personas.
 
-El proposito de esta pequena actividad es que comprendas que situaciones y contextos
-deben encender tus alarmas para desarrollar el pensamiento critico suficiente,
-aprender a dudar de lo que ves, lidiar con estas tecnologias y evitar problemas.
+¿CÓMO JUGAR?
 
-Como funciona la evaluacion?
-1. Observa la imagen.
-2. Analiza la posibilidad de que sea real o no.
-3. Elige la opcion que consideres correcta.
-4. Ve la explicacion detallada para comprender el contexto.
--------------------------------------------------------------------------
+1. Observa cuidadosamente cada imagen.
+2. Analiza sus sombras, texturas y detalles.
+3. Decide si fue creada por IA o por una persona.
+
+TIENES 15 SEGUNDOS POR PREGUNTA.
+
+Cada respuesta correcta suma 10 puntos.
+
+¡Mucha suerte y demuestra tu habilidad!
+
 [INSTRUCCIONES]
-Vendame verduras:
-1. Sí (Es IA)aa
-2. No (Es Humano)aa
+Observa cuidadosamente la imagen.
+
+¿Fue creada por inteligencia artificial?
+
+Selecciona una de las dos opciones.
