@@ -3,6 +3,7 @@ import java.awt.event.*;
 import java.net.URL;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+
 public class Quiz implements ActionListener {
     private Juego juego;
     private InfoJuego info = new InfoJuego();
@@ -149,12 +150,13 @@ public class Quiz implements ActionListener {
         etiquetaImagen.setHorizontalAlignment(SwingConstants.CENTER);
         imagenContenedor.add(etiquetaImagen);
 
-        // Temporizador 
+        // Temporizador
         JPanel estadoPanel = new JPanel(new BorderLayout());
         estadoPanel.setOpaque(false);
 
         etiquetaEstado = crearEtiqueta(
                 "  Elige una opción para continuar", 12, TEXTO_SECUNDARIO, false);
+
         JPanel tiempoPanel = new JPanel(new BorderLayout(10, 5));
         tiempoPanel.setOpaque(false);
 
@@ -187,6 +189,7 @@ public class Quiz implements ActionListener {
         // Botones para responder
         JPanel respuestas = new JPanel(new GridLayout(1, 2, 16, 0));
         respuestas.setOpaque(false);
+
         button1 = crearBoton("SÍ, ES IA", MORADO, TEXTO);
         button2 = crearBoton("NO, ES HUMANO", SUPERFICIE_CLARA, TEXTO);
 
@@ -250,6 +253,7 @@ public class Quiz implements ActionListener {
         etiquetaPuntaje.setText("PUNTAJE  " + juego.getPuntaje() + " pts");
         etiquetaEstado.setText("  Elige una opción para continuar");
         etiquetaEstado.setForeground(TEXTO_SECUNDARIO);
+
         cargarImagen(p);
 
         button1.setEnabled(true);
@@ -261,48 +265,48 @@ public class Quiz implements ActionListener {
     }
 
 
-	private void cargarImagen(Pregunta pregunta) {
-	
-	    try {
-	
-	        URL url = getClass().getResource(pregunta.getRutaImagen());
-	
-	        if (url == null) {
-	            throw new Exception("No se encontró la imagen.");
-	        }
-	
-	        ImageIcon imagen = new ImageIcon(url);
-	
-	        int ancho = imagen.getIconWidth();
-	        int alto = imagen.getIconHeight();
-	
-	        int anchoDisponible = etiquetaImagen.getParent().getWidth() - 30;
-	        int altoDisponible = etiquetaImagen.getParent().getHeight() - 30;
-	
-	        double escala = Math.min(
-	                (double) anchoDisponible / ancho,
-	                (double) altoDisponible / alto
-	        );
-	
-	        escala = Math.min(escala, 1.0);
-	
-	        Image ajustada = imagen.getImage().getScaledInstance(
-	                (int) (ancho * escala),
-	                (int) (alto * escala),
-	                Image.SCALE_SMOOTH
-	        );
-	
-	        etiquetaImagen.setIcon(new ImageIcon(ajustada));
-	        etiquetaImagen.setText("");
-	
-	    } catch (Exception ex) {
-	
-	        etiquetaImagen.setIcon(null);
-	        etiquetaImagen.setText("Imagen no disponible");
-	
-	        System.out.println(ex.getMessage());
-	    }
-	}
+    private void cargarImagen(Pregunta pregunta) {
+
+        try {
+
+            URL url = getClass().getResource(pregunta.getRutaImagen());
+
+            if (url == null) {
+                throw new Exception("No se encontró la imagen.");
+            }
+
+            ImageIcon imagen = new ImageIcon(url);
+
+            int ancho = imagen.getIconWidth();
+            int alto = imagen.getIconHeight();
+
+            int anchoDisponible = etiquetaImagen.getParent().getWidth() - 30;
+            int altoDisponible = etiquetaImagen.getParent().getHeight() - 30;
+
+            double escala = Math.min(
+                    (double) anchoDisponible / ancho,
+                    (double) altoDisponible / alto
+            );
+
+            escala = Math.min(escala, 1.0);
+
+            Image ajustada = imagen.getImage().getScaledInstance(
+                    (int) (ancho * escala),
+                    (int) (alto * escala),
+                    Image.SCALE_SMOOTH
+            );
+
+            etiquetaImagen.setIcon(new ImageIcon(ajustada));
+            etiquetaImagen.setText("");
+
+        } catch (Exception ex) {
+
+            etiquetaImagen.setIcon(null);
+            etiquetaImagen.setText("Imagen no disponible");
+
+            System.out.println(ex.getMessage());
+        }
+    }
 
 
     private void actualizarTemporizador() {
@@ -332,7 +336,8 @@ public class Quiz implements ActionListener {
         if (respuestaProcesada) {
             return;
         }
-		respuestaProcesada = true;
+
+        respuestaProcesada = true;
         button1.setEnabled(false);
         button2.setEnabled(false);
 
@@ -376,8 +381,23 @@ public class Quiz implements ActionListener {
                 null, opciones, opciones[1]);
 
         if (opcion == 0 && actual != null) {
+
+            JTextArea areaTexto = new JTextArea(actual.getRetroalimentacion());
+            areaTexto.setLineWrap(true);        // Ajusta el texto al ancho
+            areaTexto.setWrapStyleWord(true);   // Corta por palabras, no por letras
+            areaTexto.setEditable(false);       // Solo lectura
+            areaTexto.setBackground(new Color(245, 247, 255)); // Mismo color de fondo
+            areaTexto.setForeground(Color.BLACK);
+            areaTexto.setFont(new Font("SansSerif", Font.PLAIN, 13));
+            areaTexto.setMargin(new Insets(10, 10, 10, 10)); // Márgenes internos
+
+
+            JScrollPane scroll = new JScrollPane(areaTexto);
+            scroll.setPreferredSize(new Dimension(450, 200)); // Tamaño de la casilla
+
+
             JOptionPane.showMessageDialog(frame,
-                    actual.getRetroalimentacion(),
+                    scroll,
                     "Análisis de la imagen",
                     JOptionPane.INFORMATION_MESSAGE);
         }
@@ -425,13 +445,14 @@ public class Quiz implements ActionListener {
                 obtenerMensajeFinal(porcentaje), 13, TEXTO, false);
 
         JLabel[] etiquetas = {
-            insignia, titulo, descripcion, puntaje, puntosTexto, mensaje
+                insignia, titulo, descripcion, puntaje, puntosTexto, mensaje
         };
 
         for (JLabel etiqueta : etiquetas) {
             etiqueta.setAlignmentX(Component.CENTER_ALIGNMENT);
         }
-		JProgressBar resultadoBarra = new JProgressBar(0, 100);
+
+        JProgressBar resultadoBarra = new JProgressBar(0, 100);
         resultadoBarra.setValue(porcentaje);
         resultadoBarra.setString(porcentaje + "% de efectividad");
         resultadoBarra.setStringPainted(true);
@@ -477,5 +498,4 @@ public class Quiz implements ActionListener {
 
         return "¡Sigue practicando! Distinguir imágenes de IA puede ser un reto.";
     }
-
 }

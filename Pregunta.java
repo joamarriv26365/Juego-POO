@@ -1,7 +1,10 @@
+import javax.swing.ImageIcon;
+
 public class Pregunta {
+
     private int numero;
     private String rutaImagen;
-    private boolean esIA;
+    private boolean esIA; // true = Es IA, false = Es Humano
     private String retroalimentacion;
 
     public Pregunta(int numero, String rutaImagen, boolean esIA, String retroalimentacion) {
@@ -12,47 +15,27 @@ public class Pregunta {
     }
 
     public boolean esRespuestaCorrecta(boolean respuestaUsuario) {
-
         return this.esIA == respuestaUsuario;
     }
 
     public int getNumero() {
-
         return numero;
     }
 
     public String getRutaImagen() {
-
         return rutaImagen;
     }
 
     public String getRetroalimentacion() {
         return retroalimentacion;
-
     }
 
-    public void setNumero(int numero) {
-
-        this.numero = numero;
-    }
-
-    public void setRutaImagen(String rutaImagen) {
-
-        this.rutaImagen = rutaImagen;
-    }
-
-    public boolean isEsIA() {
-
-        return esIA;
-    }
-
-    public void setEsIA(boolean esIA) {
-
-        this.esIA = esIA;
-    }
-
-    public void setRetroalimentacion(String retroalimentacion) {
-
-        this.retroalimentacion = retroalimentacion;
+    public ImageIcon getImagen() {
+        java.net.URL ruta = getClass().getResource(rutaImagen);
+        if (ruta == null) {
+            System.out.println("No se encontró la imagen: " + rutaImagen);
+            return null;
+        }
+        return new ImageIcon(ruta);
     }
 }
